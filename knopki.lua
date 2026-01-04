@@ -1,10 +1,10 @@
 script_author("Chipay")
 script_name("Knopochki")
 local ev = require'lib.samp.events'
-function ev.onSendCommand(cmd) -- ну тут и ежу понятно епт
+function ev.onSendCommand(cmd) -- РЅСѓ С‚СѓС‚ Рё РµР¶Сѓ РїРѕРЅСЏС‚РЅРѕ РµРїС‚
     if cmd == '/q' then
-        os.exit() -- посылает нахуй
-        return false -- блокирует отправка команда серверу потому что памату
+        os.exit() -- РїРѕСЃС‹Р»Р°РµС‚ РЅР°С…СѓР№
+        return false -- Р±Р»РѕРєРёСЂСѓРµС‚ РѕС‚РїСЂР°РІРєР° РєРѕРјР°РЅРґР° СЃРµСЂРІРµСЂСѓ РїРѕС‚РѕРјСѓ С‡С‚Рѕ РїР°РјР°С‚Сѓ
     end
 end
 local imgui = require "mimgui"
@@ -15,8 +15,8 @@ local new = imgui.new
 local inicfg = require "inicfg"
 local ini=inicfg.load({
 cfg={
-    name = 'Кнопочки 1',
-    name2 = 'Кнопочки 2',
+    name = 'РљРЅРѕРїРѕС‡РєРё 1',
+    name2 = 'РљРЅРѕРїРѕС‡РєРё 2',
     ono1 = true,
     ono2 = false,
     titul_suchka = true,
@@ -70,39 +70,39 @@ local wsi2 = imgui.ImVec2(ini.cfg.size_x2 or 200, ini.cfg.size_y2 or 200)
 
 function main()
     repeat wait(4000) until isSampAvailable()
-        sampAddChatMessage('{DC143C}[Кнопки]:{FFFFFF}Автор скрипта: {DC143C}Chipay_Skywalker!',-1)
-    sampAddChatMessage('{DC143C}[Кнопки]:{FFFFFF}Введите {DC143C}/khelp {FFFFFF}для справки!',-1)
+        sampAddChatMessage('{DC143C}[РљРЅРѕРїРєРё]:{FFFFFF}РђРІС‚РѕСЂ СЃРєСЂРёРїС‚Р°: {DC143C}Chipay_Skywalker!',-1)
+    sampAddChatMessage('{DC143C}[РљРЅРѕРїРєРё]:{FFFFFF}Р’РІРµРґРёС‚Рµ {DC143C}/khelp {FFFFFF}РґР»СЏ СЃРїСЂР°РІРєРё!',-1)
     sampRegisterChatCommand('khelp',function ()
         local helperka_epta=[[
-        {FF0000} /dk - {FFFFFF}скрыть\показать окно 1
-        {FF0000} /dk2 - {FFFFFF}скрыть\показать окно 2
-        {FF0000} /k1-8 - {FFFFFF}команда\текст - биндит команду\текст
-        {FF0000} /kn1-8 - {FFFFFF}название кнопок устанавлвается отдельно(добавлено по просьбе)
-        {FF0000} /khelp - {FFFFFF}скрыть\показать это меню
-        {FF0000} /dstill - {FFFFFF}скрыть\показать заголовок окно
-        {FF0000} /num1 текст - {FFFFFF}устанавливает название окна(заголовок)
-        {FF0000} /num2 текст - {FFFFFF}устанавливает название окна 2(заголовок)
-        {FF0000}/kfreeze -  {FFFFFF}блокирует перемещение окна 1
-        {FF0000}/kfreeze2 - {FFFFFF}блокирует перемещение окна 2
-        {FF0000}/sizee - {FFFFFF}вкл\выкл изменение размера окон
-        {FF0000}/ksms - {FFFFFF}отображение уведомлений вкл\выкл
+        {FF0000} /dk - {FFFFFF}СЃРєСЂС‹С‚СЊ\РїРѕРєР°Р·Р°С‚СЊ РѕРєРЅРѕ 1
+        {FF0000} /dk2 - {FFFFFF}СЃРєСЂС‹С‚СЊ\РїРѕРєР°Р·Р°С‚СЊ РѕРєРЅРѕ 2
+        {FF0000} /k1-8 - {FFFFFF}РєРѕРјР°РЅРґР°\С‚РµРєСЃС‚ - Р±РёРЅРґРёС‚ РєРѕРјР°РЅРґСѓ\С‚РµРєСЃС‚
+        {FF0000} /kn1-8 - {FFFFFF}РЅР°Р·РІР°РЅРёРµ РєРЅРѕРїРѕРє СѓСЃС‚Р°РЅР°РІР»РІР°РµС‚СЃСЏ РѕС‚РґРµР»СЊРЅРѕ(РґРѕР±Р°РІР»РµРЅРѕ РїРѕ РїСЂРѕСЃСЊР±Рµ)
+        {FF0000} /khelp - {FFFFFF}СЃРєСЂС‹С‚СЊ\РїРѕРєР°Р·Р°С‚СЊ СЌС‚Рѕ РјРµРЅСЋ
+        {FF0000} /dstill - {FFFFFF}СЃРєСЂС‹С‚СЊ\РїРѕРєР°Р·Р°С‚СЊ Р·Р°РіРѕР»РѕРІРѕРє РѕРєРЅРѕ
+        {FF0000} /num1 С‚РµРєСЃС‚ - {FFFFFF}СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°(Р·Р°РіРѕР»РѕРІРѕРє)
+        {FF0000} /num2 С‚РµРєСЃС‚ - {FFFFFF}СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅР°Р·РІР°РЅРёРµ РѕРєРЅР° 2(Р·Р°РіРѕР»РѕРІРѕРє)
+        {FF0000}/kfreeze -  {FFFFFF}Р±Р»РѕРєРёСЂСѓРµС‚ РїРµСЂРµРјРµС‰РµРЅРёРµ РѕРєРЅР° 1
+        {FF0000}/kfreeze2 - {FFFFFF}Р±Р»РѕРєРёСЂСѓРµС‚ РїРµСЂРµРјРµС‰РµРЅРёРµ РѕРєРЅР° 2
+        {FF0000}/sizee - {FFFFFF}РІРєР»\РІС‹РєР» РёР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РѕРєРѕРЅ
+        {FF0000}/ksms - {FFFFFF}РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СѓРІРµРґРѕРјР»РµРЅРёР№ РІРєР»\РІС‹РєР»
 
-        Примечание: одинаковые команды в одинаковых кнопках могут конфликтовать
+        РџСЂРёРјРµС‡Р°РЅРёРµ: РѕРґРёРЅР°РєРѕРІС‹Рµ РєРѕРјР°РЅРґС‹ РІ РѕРґРёРЅР°РєРѕРІС‹С… РєРЅРѕРїРєР°С… РјРѕРіСѓС‚ РєРѕРЅС„Р»РёРєС‚РѕРІР°С‚СЊ
             ]]
-        sampShowDialog(1337,'Справочник', helperka_epta,'Закрыть','',0)
+        sampShowDialog(1337,'РЎРїСЂР°РІРѕС‡РЅРёРє', helperka_epta,'Р—Р°РєСЂС‹С‚СЊ','',0)
     end)
     sampRegisterChatCommand('ksms',function ()
         sms = not sms
         ini.cfg.smska = sms
         inicfg.save(ini,'kn.ini')
-    sampAddChatMessage('Уведомления про изменения/активации функий: '.. (sms and '{00FF00}включено' or '{DC143C}выключено'),-1)
+    sampAddChatMessage('РЈРІРµРґРѕРјР»РµРЅРёСЏ РїСЂРѕ РёР·РјРµРЅРµРЅРёСЏ/Р°РєС‚РёРІР°С†РёРё С„СѓРЅРєРёР№: '.. (sms and '{00FF00}РІРєР»СЋС‡РµРЅРѕ' or '{DC143C}РІС‹РєР»СЋС‡РµРЅРѕ'),-1)
     end)    
     sampRegisterChatCommand('num1', function (arg)
         if arg and arg ~= '' then
             ini.cfg.name = arg
             inicfg.save(ini,'kn.ini')
             if sms then
-        sampAddChatMessage('Название окна изменено на: '.. '{00FF00}'..arg,-1)
+        sampAddChatMessage('РќР°Р·РІР°РЅРёРµ РѕРєРЅР° РёР·РјРµРЅРµРЅРѕ РЅР°: '.. '{00FF00}'..arg,-1)
             end
         end
     end)
@@ -111,7 +111,7 @@ function main()
             ini.cfg.name2 = arg2
             inicfg.save(ini,'kn.ini')
             if sms then
-                sampAddChatMessage('Название окна изменено на: '..'{00FF00}'..arg2,-1)
+                sampAddChatMessage('РќР°Р·РІР°РЅРёРµ РѕРєРЅР° РёР·РјРµРЅРµРЅРѕ РЅР°: '..'{00FF00}'..arg2,-1)
             end
         end
     end)
@@ -120,7 +120,7 @@ function main()
         ini.cfg.ono1 = win1[0]
         cfg_save()
           if sms then
-        sampAddChatMessage('Отображение окна: '..(win1[0] and '{00FF00}включено' or '{DC143C}выключено'),-1)
+        sampAddChatMessage('РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РѕРєРЅР°: '..(win1[0] and '{00FF00}РІРєР»СЋС‡РµРЅРѕ' or '{DC143C}РІС‹РєР»СЋС‡РµРЅРѕ'),-1)
         end
     end)
     sampRegisterChatCommand('dk2',function ()
@@ -128,7 +128,7 @@ function main()
         ini.cfg.ono2 = win2
         cfg_save()
         if sms then
-        sampAddChatMessage('Отображение окна 2: '..(win2[0] and '{00FF00}включено' or '{DC143C}выключено'),-1)
+        sampAddChatMessage('РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РѕРєРЅР° 2: '..(win2[0] and '{00FF00}РІРєР»СЋС‡РµРЅРѕ' or '{DC143C}РІС‹РєР»СЋС‡РµРЅРѕ'),-1)
         end
     end)
     sampRegisterChatCommand('dstill',function ()
@@ -136,7 +136,7 @@ function main()
         ini.cfg.titul_suchka = titul_suchka
         inicfg.save(ini,'kn.ini')
           if sms then
-            sampAddChatMessage('Отображение заголовка: '..(titul_suchka and '{00FF00}включено' or '{DC143C}выключено'),-1)
+            sampAddChatMessage('РћС‚РѕР±СЂР°Р¶РµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР°: '..(titul_suchka and '{00FF00}РІРєР»СЋС‡РµРЅРѕ' or '{DC143C}РІС‹РєР»СЋС‡РµРЅРѕ'),-1)
         end
     end)
     sampRegisterChatCommand('sizee',function ()
@@ -144,7 +144,7 @@ function main()
         ini.cfg.sss = size
         inicfg.save(ini,'kn.ini')
          if sms then
-        sampAddChatMessage('Изменение размера окон: '..(size and '{00FF00}включено' or '{DC143C}выключено'),-1)
+        sampAddChatMessage('РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РѕРєРѕРЅ: '..(size and '{00FF00}РІРєР»СЋС‡РµРЅРѕ' or '{DC143C}РІС‹РєР»СЋС‡РµРЅРѕ'),-1)
         end
     end)
     sampRegisterChatCommand('kfreeze',function ()
@@ -152,7 +152,7 @@ function main()
         ini.cfg.freeze = fz
         inicfg.save(ini,'kn.ini')
         if sms then
-        sampAddChatMessage('Блокировка перемещения окна: '..(fz and '{00FF00}включена' or '{DC143C}выключена'),-1)
+        sampAddChatMessage('Р‘Р»РѕРєРёСЂРѕРІРєР° РїРµСЂРµРјРµС‰РµРЅРёСЏ РѕРєРЅР°: '..(fz and '{00FF00}РІРєР»СЋС‡РµРЅР°' or '{DC143C}РІС‹РєР»СЋС‡РµРЅР°'),-1)
         end
     end)
         sampRegisterChatCommand('kfreeze2',function ()
@@ -160,7 +160,7 @@ function main()
         ini.cfg.freeze = fz2
         inicfg.save(ini,'kn.ini')
             if sms then
-        sampAddChatMessage('Блокировка перемещения окна 2: '..(fz2 and '{00FF00}включена' or '{DC143C}выключена'),-1)
+        sampAddChatMessage('Р‘Р»РѕРєРёСЂРѕРІРєР° РїРµСЂРµРјРµС‰РµРЅРёСЏ РѕРєРЅР° 2: '..(fz2 and '{00FF00}РІРєР»СЋС‡РµРЅР°' or '{DC143C}РІС‹РєР»СЋС‡РµРЅР°'),-1)
         end
     end)
 
@@ -177,7 +177,7 @@ function main()
                             inicfg.save(ini, "kn.ini")
                         end
                     if sms then
-                        sampAddChatMessage('Назначена команда/текст: '..'{DC143C}'.. param,-1)
+                        sampAddChatMessage('РќР°Р·РЅР°С‡РµРЅР° РєРѕРјР°РЅРґР°/С‚РµРєСЃС‚: '..'{DC143C}'.. param,-1)
                     end
                 end 
             end)
@@ -189,7 +189,7 @@ function main()
                 ini.cfg["kn"..i] = param
                 inicfg.save(ini, "kn.ini")
              if sms then
-        sampAddChatMessage('Название кнопки именено на: '..'{DC143C}'..param,-1)
+        sampAddChatMessage('РќР°Р·РІР°РЅРёРµ РєРЅРѕРїРєРё РёРјРµРЅРµРЅРѕ РЅР°: '..'{DC143C}'..param,-1)
         end
             end
         end)
