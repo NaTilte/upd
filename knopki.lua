@@ -10,7 +10,7 @@ local u8 = encoding.UTF8
 local new = imgui.new
 local inicfg = require "inicfg"
 local version = '1.0'
-local url =  ''
+local url =  'https://raw.githubusercontent.com/NaTilte/upd/refs/heads/main/knopki.lua'
 local upd = nil
 local inif = 'kn.ini'
 
@@ -516,3 +516,4 @@ end, function()
         cfg_save()
     end
 end)
+
